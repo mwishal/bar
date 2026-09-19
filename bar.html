@@ -5,13 +5,12 @@
 <title>Sign in - Google Accounts (Demo)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-  
-  /* Body diubah agar gambar bisa menempel ke atas */
-  body { 
-    background: #fff; 
-    display: flex; 
-    justify-content: center; 
-    padding-top: 0; /* Dihapus agar gambar mentok ke atas */
+
+  /* Body tidak lagi flex, agar gambar selalu di atas */
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
   }
 
   /* Wadah utama untuk menengahkan konten di bawah gambar */
@@ -27,80 +26,152 @@
     display: block;
     width: 100%;      /* Memenuhi lebar layar */
     height: auto;     /* Menjaga proporsi gambar */
-    margin: 10;        /* Tidak ada jarak */
-    border-radius: 10; /* Tidak ada sudut melengkung */
+    margin: 0;        /* Tidak ada jarak */
+    border-radius: 0; /* Tidak ada sudut melengkung */
     box-shadow: none; /* Tidak ada bayangan */
   }
 
   .card {
-    width: 450px; border: 1px solid #dadce0; border-radius: 8px;
-    padding: 48px 40px; text-align: center;
+    width: 450px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 48px 40px;
+    text-align: center;
     margin-top: 20px; /* Jarak antara gambar dan card */
   }
+
   .logo { font-size: 24px; color: #5f6368; margin-bottom: 20px; }
   .logo span:nth-child(1){color:#4285F4} .logo span:nth-child(2){color:#EA4335}
   .logo span:nth-child(3){color:#FBBC05} .logo span:nth-child(4){color:#4285F4}
   .logo span:nth-child(5){color:#34A853} .logo span:nth-child(6){color:#EA4335}
+
   h1 { font-size: 24px; font-weight: 400; color: #202124; margin-bottom: 10px; }
   p.sub { color: #5f6368; font-size: 16px; margin-bottom: 30px; }
+
   .input-group {
-    position: relative; margin-bottom: 20px; text-align: left;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
   }
+
   .input-group input {
-    width: 100%; padding: 14px 16px; font-size: 16px;
-    border: 1px solid #dadce0; border-radius: 4px; outline: none;
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    outline: none;
   }
-  .input-group input:focus { border-color: #1a73e8; box-shadow: inset 0 0 0 1px #1a73e8; }
+
+  .input-group input:focus {
+    border-color: #1a73e8;
+    box-shadow: inset 0 0 0 1px #1a73e8;
+  }
+
   .input-group label {
-    position: absolute; left: 16px; top: 14px; color: #5f6368;
-    font-size: 16px; pointer-events: none; transition: all .15s; background: #fff; padding: 0 4px;
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    color: #5f6368;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all .15s;
+    background: #fff;
+    padding: 0 4px;
   }
+
   .input-group input:focus + label,
   .input-group input:not(:placeholder-shown) + label {
-    top: -9px; font-size: 12px; color: #1a73e8;
+    top: -9px;
+    font-size: 12px;
+    color: #1a73e8;
   }
+
   .btn {
-    background: #1a73e8; color: #fff; border: none; border-radius: 4px;
-    padding: 12px 24px; font-size: 14px; font-weight: 500; cursor: pointer; margin-top: 10px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
   }
+
   .btn:hover { background: #1765cc; }
-  .forgot { display: inline-block; color: #1a73e8; font-size: 14px; text-decoration: none; margin-top: 20px; }
-  
+
+  .forgot {
+    display: inline-block;
+    color: #1a73e8;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+
   /* Banner disesuaikan marginnya */
   .banner {
-    width: 450px; 
+    width: 450px;
     margin: 60px auto 12px; /* Memberi jarak 60px dari gambar di atasnya */
-    background: #fef7e0; border: 1px solid #f9cc45;
-    border-radius: 8px; padding: 10px; font-size: 13px; color: #5f6368; text-align: center;
+    background: #fef7e0;
+    border: 1px solid #f9cc45;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    color: #5f6368;
+    text-align: center;
   }
-  
+
   /* Popup */
   #popup {
-    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
-    justify-content: center; align-items: center;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
   }
+
   .popup-box {
-    background: #fff; border-radius: 8px; padding: 24px 32px;
-    text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px 32px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
   }
-  .popup-box h2 { color: #202124; font-size: 20px; margin-bottom: 8px; }
-  .popup-box p { color: #5f6368; font-size: 14px; margin-bottom: 20px; }
+
+  .popup-box h2 {
+    color: #202124;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .popup-box p {
+    color: #5f6368;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
   .popup-box button {
-    background: #1a73e8; color: #fff; border: none; border-radius: 4px;
-    padding: 10px 24px; cursor: pointer;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 24px;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
   <!-- Wadah utama untuk menengahkan konten di bawah gambar -->
   <div class="main-container">
-    
-    <!-- GAMBAR DITAMBAHKAN DI SINI (FULL WIDTH) -->
-    <!-- Pastikan nama file gambar di bawah ini sama dengan yang Anda upload ke GitHub -->
+
+    <!-- GAMBAR HEADER FULL WIDTH -->
+    <!-- Pastikan nama file gambar sama dengan yang diupload, misal: browser-google.png -->
     <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image">
-    
+
     <div class="banner">This page is a phishing awareness simulation — no data is sent.</div>
-    
+
     <div class="card">
       <div class="logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
       <h1>Sign in</h1>
