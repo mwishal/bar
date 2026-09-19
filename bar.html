@@ -6,36 +6,36 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
   
+  /* Body diubah agar gambar bisa menempel ke atas */
   body { 
     background: #fff; 
-    margin: 0;
-    padding: 0;
+    display: flex; 
+    justify-content: center; 
+    padding-top: 0; /* Dihapus agar gambar mentok ke atas */
   }
 
-  /* Gambar header - akan tampil rapi jika gambar sudah dipotong */
-  .header-image {
-    display: block;
-    width: 100%;      
-    height: auto;     
-    margin: 0;        
-    padding: 0;
-    border-radius: 0; 
-  }
-
-  /* Wadah untuk banner dan card */
+  /* Wadah utama untuk menengahkan konten di bawah gambar */
   .main-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+  }
+
+  /* CSS Gambar Header - Full Width */
+  .header-image {
+    display: block;
+    width: 100%;      /* Memenuhi lebar layar */
+    height: auto;     /* Menjaga proporsi gambar */
+    margin: 0;        /* Tidak ada jarak */
+    border-radius: 0; /* Tidak ada sudut melengkung */
+    box-shadow: none; /* Tidak ada bayangan */
   }
 
   .card {
     width: 450px; border: 1px solid #dadce0; border-radius: 8px;
     padding: 48px 40px; text-align: center;
-    margin-top: 20px; 
-    background: #fff;
+    margin-top: 20px; /* Jarak antara gambar dan card */
   }
   .logo { font-size: 24px; color: #5f6368; margin-bottom: 20px; }
   .logo span:nth-child(1){color:#4285F4} .logo span:nth-child(2){color:#EA4335}
@@ -43,7 +43,9 @@
   .logo span:nth-child(5){color:#34A853} .logo span:nth-child(6){color:#EA4335}
   h1 { font-size: 24px; font-weight: 400; color: #202124; margin-bottom: 10px; }
   p.sub { color: #5f6368; font-size: 16px; margin-bottom: 30px; }
-  .input-group { position: relative; margin-bottom: 20px; text-align: left; }
+  .input-group {
+    position: relative; margin-bottom: 20px; text-align: left;
+  }
   .input-group input {
     width: 100%; padding: 14px 16px; font-size: 16px;
     border: 1px solid #dadce0; border-radius: 4px; outline: none;
@@ -63,15 +65,19 @@
   }
   .btn:hover { background: #1765cc; }
   .forgot { display: inline-block; color: #1a73e8; font-size: 14px; text-decoration: none; margin-top: 20px; }
+  
+  /* Banner disesuaikan marginnya */
   .banner {
     width: 450px; 
-    margin: 0 auto 12px; 
+    margin: 60px auto 12px; /* Memberi jarak 60px dari gambar di atasnya */
     background: #fef7e0; border: 1px solid #f9cc45;
     border-radius: 8px; padding: 10px; font-size: 13px; color: #5f6368; text-align: center;
   }
+  
+  /* Popup */
   #popup {
     display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
-    justify-content: center; align-items: center; z-index: 999;
+    justify-content: center; align-items: center;
   }
   .popup-box {
     background: #fff; border-radius: 8px; padding: 24px 32px;
@@ -86,10 +92,13 @@
 </style>
 </head>
 <body>
-  
-  <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image">
-  
+  <!-- Wadah utama untuk menengahkan konten di bawah gambar -->
   <div class="main-container">
+    
+    <!-- GAMBAR DITAMBAHKAN DI SINI (FULL WIDTH) -->
+    <!-- Pastikan nama file gambar di bawah ini sama dengan yang Anda upload ke GitHub -->
+    <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image">
+    
     <div class="banner">This page is a phishing awareness simulation — no data is sent.</div>
     
     <div class="card">
@@ -123,7 +132,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault(); // no data is sent
     document.getElementById('popup').style.display = 'flex';
   });
 });
