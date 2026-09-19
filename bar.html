@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Sign in - Google Accounts (Demo)</title>
@@ -61,22 +61,22 @@
 </head>
 <body>
   <div>
-    <div class="banner">Halaman ini adalah simulasi untuk pelatihan phishing — tidak ada data yang dikirim.</div>
+    <div class="banner">This page is a phishing awareness simulation — no data is sent.</div>
     <div class="card">
       <div class="logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
       <h1>Sign in</h1>
-      <p class="sub">Gunakan Akun Google Anda</p>
+      <p class="sub">Use your Google Account</p>
 
       <form id="loginForm" novalidate>
         <div class="input-group">
           <input type="email" id="email" placeholder=" " autocomplete="off">
-          <label for="email">Email atau ponsel</label>
+          <label for="email">Email or phone</label>
         </div>
         <div class="input-group">
           <input type="password" id="password" placeholder=" " autocomplete="off">
-          <label for="password">Masukkan sandi</label>
+          <label for="password">Enter your password</label>
         </div>
-        <a href="#" class="forgot">Lupa email?</a><br>
+        <a href="#" class="forgot">Forgot email?</a><br>
         <button type="submit" class="btn">Log in</button>
       </form>
     </div>
@@ -85,15 +85,15 @@
   <div id="popup">
     <div class="popup-box">
       <h2>Fake Google</h2>
-      <p>Ini halaman tiruan untuk keperluan riset.</p>
-      <button onclick="document.getElementById('popup').style.display='none'">Tutup</button>
+      <p>This is a mock page for research purposes.</p>
+      <button onclick="document.getElementById('popup').style.display='none'">Close</button>
     </div>
   </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // tidak ada data yang dikirim
+    e.preventDefault(); // no data is sent
     document.getElementById('popup').style.display = 'flex';
   });
 });
