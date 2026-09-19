@@ -6,7 +6,6 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
   
-  /* Body direset total agar tidak ada celah */
   body { 
     background: #fff; 
     margin: 0;
@@ -14,17 +13,17 @@
     overflow-x: hidden; 
   }
 
-  /* CSS Gambar Header - Full Width Mentok */
+  /* CSS Gambar Header - Auto Crop bagian putih di bawah */
   .header-image {
     display: block;
-    width: 100vw;      /* 100% dari lebar layar */
-    max-width: 100%;
-    height: auto;     
+    width: 100vw;      
+    height: 120px;     /* Kunci tinggi gambar agar hanya menampilkan area browser saja */
+    object-fit: cover; /* Memotong gambar yang berlebih */
+    object-position: top; /* Fokus ke bagian atas gambar */
     margin: 0;        
     padding: 0;
     border-radius: 0; 
     box-shadow: none; 
-    object-fit: cover; /* Memastikan gambar mengisi ruang */
   }
 
   /* Wadah untuk banner dan card */
@@ -40,6 +39,9 @@
     width: 450px; border: 1px solid #dadce0; border-radius: 8px;
     padding: 48px 40px; text-align: center;
     margin-top: 20px; 
+    background: #fff; /* Pastikan background putih */
+    position: relative;
+    z-index: 10;
   }
   .logo { font-size: 24px; color: #5f6368; margin-bottom: 20px; }
   .logo span:nth-child(1){color:#4285F4} .logo span:nth-child(2){color:#EA4335}
@@ -81,6 +83,7 @@
   #popup {
     display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
     justify-content: center; align-items: center;
+    z-index: 999;
   }
   .popup-box {
     background: #fff; border-radius: 8px; padding: 24px 32px;
@@ -95,13 +98,9 @@
 </style>
 </head>
 <body>
-  <!-- 
-    PENTING: 
-    1. Ganti width="1920" dan height="200" dengan ukuran ASLI gambar Anda.
-    2. Jika gambar Anda masih ada area putihnya, tampilan akan tetap ada putih.
-       Silakan crop gambar terlebih dahulu.
-  -->
-  <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image" width="1920" height="200">
+  
+  <!-- Gambar dipanggil di sini. CSS akan otomatis memotong bagian putih di bawahnya -->
+  <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image">
   
   <div class="main-container">
     <div class="banner">This page is a phishing awareness simulation — no data is sent.</div>
