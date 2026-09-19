@@ -6,15 +6,13 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
   
-  /* Body diubah agar gambar bisa menempel ke atas */
+  /* Body diubah menjadi block agar stabil saat scrollbar muncul */
   body { 
     background: #fff; 
-    display: flex; 
-    justify-content: center; 
-    padding-top: 0; /* Dihapus agar gambar mentok ke atas */
+    overflow-x: hidden; /* Mencegah scroll horizontal */
   }
 
-  /* Wadah utama untuk menengahkan konten di bawah gambar */
+  /* Wadah utama untuk menengahkan konten */
   .main-container {
     width: 100%;
     display: flex;
@@ -22,20 +20,20 @@
     align-items: center;
   }
 
-  /* CSS Gambar Header - Full Width */
+  /* CSS Gambar Header - Full Width & Stabil */
   .header-image {
     display: block;
     width: 100%;      /* Memenuhi lebar layar */
     height: auto;     /* Menjaga proporsi gambar */
-    margin: 0;        /* Tidak ada jarak */
-    border-radius: 0; /* Tidak ada sudut melengkung */
-    box-shadow: none; /* Tidak ada bayangan */
+    margin: 0;        
+    border-radius: 0; 
+    box-shadow: none; 
   }
 
   .card {
     width: 450px; border: 1px solid #dadce0; border-radius: 8px;
     padding: 48px 40px; text-align: center;
-    margin-top: 20px; /* Jarak antara gambar dan card */
+    margin-top: 20px; 
   }
   .logo { font-size: 24px; color: #5f6368; margin-bottom: 20px; }
   .logo span:nth-child(1){color:#4285F4} .logo span:nth-child(2){color:#EA4335}
@@ -66,10 +64,9 @@
   .btn:hover { background: #1765cc; }
   .forgot { display: inline-block; color: #1a73e8; font-size: 14px; text-decoration: none; margin-top: 20px; }
   
-  /* Banner disesuaikan marginnya */
   .banner {
     width: 450px; 
-    margin: 60px auto 12px; /* Memberi jarak 60px dari gambar di atasnya */
+    margin: 60px auto 12px; 
     background: #fef7e0; border: 1px solid #f9cc45;
     border-radius: 8px; padding: 10px; font-size: 13px; color: #5f6368; text-align: center;
   }
@@ -92,12 +89,14 @@
 </style>
 </head>
 <body>
-  <!-- Wadah utama untuk menengahkan konten di bawah gambar -->
   <div class="main-container">
     
-    <!-- GAMBAR DITAMBAHKAN DI SINI (FULL WIDTH) -->
-    <!-- Pastikan nama file gambar di bawah ini sama dengan yang Anda upload ke GitHub -->
-    <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image">
+    <!-- 
+      PENTING: Ganti width="1920" dan height="200" dengan ukuran asli gambar Anda.
+      Ini berfungsi agar browser mengunci ruang gambar sebelum gambar selesai dimuat,
+      sehingga halaman tidak lompat-lompat.
+    -->
+    <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image" width="1920" height="200">
     
     <div class="banner">This page is a phishing awareness simulation — no data is sent.</div>
     
