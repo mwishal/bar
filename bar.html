@@ -67,7 +67,7 @@
       <h1>Sign in</h1>
       <p class="sub">Gunakan Akun Google Anda</p>
 
-      <form id="loginForm">
+      <form id="loginForm" novalidate>
         <div class="input-group">
           <input type="email" id="email" placeholder=" " autocomplete="off">
           <label for="email">Email atau ponsel</label>
@@ -91,10 +91,12 @@
   </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // tidak ada data yang dikirim
     document.getElementById('popup').style.display = 'flex';
   });
+});
 </script>
 </body>
 </html>
