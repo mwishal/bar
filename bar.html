@@ -6,11 +6,13 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
 
-  /* Body tidak lagi flex, agar gambar selalu di atas */
   body {
     background: #fff;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Wadah utama untuk menengahkan konten di bawah gambar */
@@ -19,16 +21,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
   }
 
   /* CSS Gambar Header - Full Width */
   .header-image {
     display: block;
-    width: 100%;      /* Memenuhi lebar layar */
-    height: auto;     /* Menjaga proporsi gambar */
-    margin: 0;        /* Tidak ada jarak */
-    border-radius: 0; /* Tidak ada sudut melengkung */
-    box-shadow: none; /* Tidak ada bayangan */
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* CSS Footer */
+  .footer {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  /* CSS Gambar Footer - Full Width */
+  .footer-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .card {
@@ -37,7 +56,7 @@
     border-radius: 8px;
     padding: 48px 40px;
     text-align: center;
-    margin-top: 0px; /* Jarak antara gambar dan card */
+    margin-top: 0px;
   }
 
   .logo { font-size: 24px; color: #5f6368; margin-bottom: 20px; }
@@ -109,19 +128,6 @@
     margin-top: 20px;
   }
 
-  /* Banner disesuaikan marginnya */
-  /* .banner {
-    width: 450px;
-    margin: 60px auto 12px;
-    background: #fef7e0;
-    border: 1px solid #f9cc45;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 13px;
-    color: #5f6368;
-    text-align: center;
-  } */
-
   /* Popup */
   #popup {
     display: none;
@@ -167,10 +173,7 @@
   <div class="main-container">
 
     <!-- GAMBAR HEADER FULL WIDTH -->
-    <!-- Pastikan nama file gambar sama dengan yang diupload, misal: browser-google.png -->
     <img src="browser-google.png" alt="Tampilan Browser Google" class="header-image">
-
-    
 
     <div class="card">
       <div class="logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
@@ -191,6 +194,11 @@
       </form>
     </div>
   </div>
+
+  <!-- GAMBAR FOOTER FULL WIDTH -->
+  <footer class="footer">
+    <img src="browser-google.png" alt="Tampilan Browser Google" class="footer-image">
+  </footer>
 
   <div id="popup">
     <div class="popup-box">
